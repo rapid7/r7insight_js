@@ -11,8 +11,8 @@ var testFiles = [
     'test/*Spec.js'
 ];
 var apiVersion = 1;
-var apiEndpoint = 'js.logentries.com/v' + apiVersion;
-var webhookEndpoint = 'webhook.logentries.com/noformat';
+var apiEndpoint = 'js.logs.insight.rapid7.com/v' + apiVersion;
+var webhookEndpoint = 'webhook.logs.insight.rapid7.com/noformat';
 
 
 gulp.task('default', ['test', 'build']);

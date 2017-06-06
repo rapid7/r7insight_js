@@ -63,6 +63,8 @@
         var _pageInfo = options.page_info;
         /** @type {string} */
         var _token = options.token;
+        /** @type {string} */
+        var _region = options.region;
         /** @type {boolean} */
         var _print = options.print;
         /** @type {boolean} */
@@ -81,12 +83,12 @@
         if (window.LEENDPOINT) {
             _endpoint = window.LEENDPOINT;
         } else if (_noFormat) {
-            _endpoint = "webhook.logentries.com/noformat";
+            _endpoint = "webhook.logs.insight.rapid7.com/noformat";
         }
         else {
-            _endpoint = "js.logentries.com/v1";
+            _endpoint = "js.logs.insight.rapid7.com/v1";
         }
-        _endpoint = (_SSL ? "https://" : "http://") + _endpoint + "/logs/" + _token;
+        _endpoint = (_SSL ? "https://" : "http://") + _region + "." + _endpoint + "/logs/" + _token;
 
         /**
          * Flag to prevent further invocations on network err
@@ -130,6 +132,7 @@
               },
               browser: {
                 name: nav.appName,
+                user_agent: nav.userAgent,
                 version: nav.appVersion,
                 cookie_enabled: nav.cookieEnabled,
                 do_not_track: nav.doNotTrack
@@ -270,7 +273,7 @@
                     request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
                     request.setRequestHeader('Content-type', 'application/json');
                 }
-                
+
                 if (request.overrideMimeType) {
                     request.overrideMimeType('text');
                 }
@@ -307,7 +310,11 @@
 
         if (dict.token === null) {
             throw new Error("Token not present.");
-        } else {
+        }
+        else if (dict.region === null) {
+            throw new Error("Region is not present");
+        }
+        else {
             logger = new LogStream(dict);
         }
 

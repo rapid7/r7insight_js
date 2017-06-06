@@ -1,0 +1,4 @@
+lib/*
+build/*
+node_modules/
+test/live-client.html

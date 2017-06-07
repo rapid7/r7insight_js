@@ -1,6 +1,5 @@
 var gulp = require('gulp');
 var concat = require('gulp-concat');
-var karma = require('gulp-karma');
 var closureCompiler = require('google-closure-compiler').gulp();
 var rename = require('gulp-rename');
 var replace = require('gulp-replace');
@@ -11,8 +10,8 @@ var testFiles = [
     'test/*Spec.js'
 ];
 var apiVersion = 1;
-var apiEndpoint = 'js.logentries.com/v' + apiVersion;
-var webhookEndpoint = 'webhook.logentries.com/noformat';
+var apiEndpoint = 'js.logs.insight.rapid7.com/v' + apiVersion;
+var webhookEndpoint = 'webhook.logs.insight.rapid7.com/noformat';
 
 
 gulp.task('default', ['test', 'build']);

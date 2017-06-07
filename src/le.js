@@ -63,6 +63,8 @@
         var _pageInfo = options.page_info;
         /** @type {string} */
         var _token = options.token;
+        /** @type {string} */
+        var _region = options.region;
         /** @type {boolean} */
         var _print = options.print;
         /** @type {boolean} */
@@ -86,7 +88,7 @@
         else {
             _endpoint = "localhost:8080/v1";
         }
-        _endpoint = (_SSL ? "https://" : "http://") + _endpoint + "/logs/" + _token;
+        _endpoint = (_SSL ? "https://" : "http://") + _region + "." + _endpoint + "/logs/" + _token;
 
         /**
          * Flag to prevent further invocations on network err
@@ -271,7 +273,7 @@
                     request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
                     request.setRequestHeader('Content-type', 'application/json');
                 }
-                
+
                 if (request.overrideMimeType) {
                     request.overrideMimeType('text');
                 }
@@ -308,7 +310,11 @@
 
         if (dict.token === null) {
             throw new Error("Token not present.");
-        } else {
+        }
+        else if (dict.region === null) {
+            throw new Error("Region is not present");
+        }
+        else {
             logger = new LogStream(dict);
         }
 

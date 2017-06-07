@@ -1,9 +1,9 @@
 le.js
 =====
 
-Client-side JavaScript logging library for [Logentries](http://www.logentries.com).
+Client-side JavaScript logging library for [InsightOps](https://www.rapid7.com/solutions/it-operations/).
 
-[![Build Status](https://travis-ci.org/logentries/le_js.png?branch=master)](https://travis-ci.org/logentries/le_js)
+[![Build Status](https://travis-ci.org/rapid7/r7insight_js.png?branch=master)](https://travis-ci.org/rapid7/r7insight_js)
 
 Features
 --------
@@ -17,6 +17,6 @@ Features
 Quick start
 -----------
 
-Start [here](https://github.com/logentries/le_js/wiki/Getting-started), then check out the rest of the wiki.
+Start [here](https://github.com/rapid7/r7insight_js/wiki/Getting-started), then check out the rest of the wiki.
 
-Don't have an account? Get one [for free](https://logentries.com/quick-start/).
+Don't have an account? Get one [for free](https://www.rapid7.com/products/insightops/try/).

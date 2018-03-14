@@ -20,3 +20,8 @@ Quick start
 Start [here](https://github.com/rapid7/r7insight_js/wiki/Getting-started), then check out the rest of the wiki.
 
 Don't have an account? Get one [for free](https://www.rapid7.com/products/insightops/try/).
+
+Contact Support
+-----------
+
+Please email our support team at support@rapid7.com if you need any help.

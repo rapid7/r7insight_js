@@ -82,7 +82,7 @@ var XMLHttpRequest = function() {
 
 /**
  * @license Copyright 2019 Rapid7.
- * Please view license at https://raw.github.com/rapid7/le_js/master/LICENSE
+ * Please view license at https://raw.github.com/rapid7/r7insight_js/master/LICENSE
  */
 
 /*global define, module, exports */
@@ -297,12 +297,12 @@ var XMLHttpRequest = function() {
                             console.error("Couldn't submit events.");
                             if (request.status === 410) {
                                 // This API version has been phased out
-                                console.warn("This version of le_js is no longer supported!");
+                                console.warn("This version of r7insight_js is no longer supported!");
                             }
                         } else {
                             if (request.status === 301) {
                                 // Server issued a deprecation warning
-                                console.warn("This version of le_js is deprecated! Consider upgrading.");
+                                console.warn("This version of r7insight_js is deprecated! Consider upgrading.");
                             }
                             if (_backlog.length > 0) {
                                 // Submit the next event in the backlog

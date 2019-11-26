@@ -1,14 +1,14 @@
 {
-  "name": "le_js",
-  "repo": "rapid7/le_js",
-  "description": "Client-side JavaScript logging library for Rapid7",
+  "name": "r7insight_js",
+  "repo": "rapid7/r7insight_js",
+  "description": "Client-side JavaScript logging library for Rapid7 Insight",
   "version": "0.0.3",
   "keywords": [],
   "dependencies": {},
   "development": {},
   "license": "MIT",
-  "main": "product/le.common.js",
+  "main": "product/r7insight_js.common.js",
   "scripts": [
-    "product/le.common.js"
+    "product/r7insight_js.common.js"
   ]
 }

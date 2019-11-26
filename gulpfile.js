@@ -5,7 +5,7 @@ var rename = require('gulp-rename');
 var replace = require('gulp-replace');
 
 var testFiles = [
-    'src/le.js',
+    'src/r7insight_js.js',
     'test/sinon*.js',
     'test/*Spec.js'
 ];
@@ -18,13 +18,13 @@ gulp.task('default', ['test', 'build']);
 
 
 gulp.task('watch', function() {
-    gulp.watch('src/le.js', ['test']);
+    gulp.watch('src/r7insight_js.js', ['test']);
 });
 
 
 gulp.task('build', function() {
-    return gulp.src('src/le.js')
-        .pipe(concat('le.js')) // We've only got one file but still need this
+    return gulp.src('src/r7insight_js.js')
+        .pipe(concat('r7insight_js.js')) // We've only got one file but still need this
         .pipe(replace(/localhost:8080\/v1/g, apiEndpoint))
         .pipe(replace(/localhost:8080\/noformat/g, webhookEndpoint))
         .pipe(gulp.dest('product'))
@@ -35,6 +35,6 @@ gulp.task('build', function() {
             language_in: 'ECMASCRIPT5_STRICT',
             externs: 'deps/umd-extern.js'
         }))
-        .pipe(rename('le.min.js'))
+        .pipe(rename('r7insight_js.min.js'))
         .pipe(gulp.dest('product'));
 });

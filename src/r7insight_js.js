@@ -240,12 +240,12 @@
                             console.error("Couldn't submit events.");
                             if (request.status === 410) {
                                 // This API version has been phased out
-                                console.warn("This version of le_js is no longer supported!");
+                                console.warn("This version of r7insight_js is no longer supported!");
                             }
                         } else {
                             if (request.status === 301) {
                                 // Server issued a deprecation warning
-                                console.warn("This version of le_js is deprecated! Consider upgrading.");
+                                console.warn("This version of r7insight_js is deprecated! Consider upgrading.");
                             }
                             if (_backlog.length > 0) {
                                 // Submit the next event in the backlog
@@ -410,7 +410,7 @@
         }
     };
 
-    function validate_region (region) {
+    function validate_region(region) {
         var allowed_regions = ['eu', 'us', 'ca', 'au', 'ap'];
         if (region) {
             if (allowed_regions.indexOf(region) > -1) {
@@ -418,12 +418,11 @@
             } else {
                 throw_error("Unrecognised region");
             }
-        } else {
-            throw_error("No region defined");
         }
+        throw_error("No region defined");
     }
 
-    function throw_error (message) {
+    function throw_error(message) {
         throw message;
     }
 }));

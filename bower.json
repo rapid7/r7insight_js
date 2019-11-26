@@ -1,9 +1,9 @@
 {
-  "name": "le_js",
+  "name": "r7insight_js",
   "version": "0.0.3",
   "homepage": "https://rapid7.com",
-  "description": "Javascript library for rapid7.com",
-  "main": "product/le.js",
+  "description": "Javascript library for Rapid7 Insight",
+  "main": "product/r7insight_js.js",
   "license": "MIT",
   "ignore": [
     "**/.*",

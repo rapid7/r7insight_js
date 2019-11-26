@@ -1,4 +1,4 @@
-le.js
+r7insight_js.js
 =====
 
 Client-side JavaScript logging library for [InsightOps](https://www.rapid7.com/solutions/it-operations/).

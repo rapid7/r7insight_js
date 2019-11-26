@@ -1,24 +1,24 @@
 {
-  "name": "le_js",
+  "name": "r7insight_js",
   "version": "0.0.3",
   "description": "Javascript library for Rapid7.com",
-  "main": "product/le.js",
+  "main": "product/r7insight_js.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
     "test": "karma start karma.conf-ci.js",
     "build": "gulp build",
-    "localtest": "karma start; jshint src/ test/leSpec.js"
+    "localtest": "karma start; jshint src/ test/r7insight_jsSpec.js"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/rapid7/le_js.git"
+    "url": "git://github.com/rapid7/r7insight_js.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rapid7/le_js/issues"
+    "url": "https://github.com/rapid7/r7insight_js/issues"
   },
   "homepage": "https://rapid7.com",
   "devDependencies": {

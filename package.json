@@ -2,14 +2,14 @@
   "name": "r7insight_js",
   "version": "0.0.3",
   "description": "Javascript library for Rapid7.com",
-  "main": "product/r7insight_js.js",
+  "main": "product/r7insight.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
     "test": "karma start karma.conf-ci.js",
     "build": "gulp build",
-    "localtest": "karma start; jshint src/ test/r7insight_jsSpec.js"
+    "localtest": "karma start; jshint src/ test/r7insightSpec.js"
   },
   "repository": {
     "type": "git",

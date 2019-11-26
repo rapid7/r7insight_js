@@ -1,4 +1,4 @@
-r7insight_js.js source
+r7insight.js source
 ============
 
 Don't use any code from here on your site!

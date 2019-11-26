@@ -7,8 +7,8 @@
   "dependencies": {},
   "development": {},
   "license": "MIT",
-  "main": "product/r7insight_js.common.js",
+  "main": "product/r7insight.common.js",
   "scripts": [
-    "product/r7insight_js.common.js"
+    "product/r7insight.common.js"
   ]
 }

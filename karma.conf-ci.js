@@ -23,8 +23,8 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'src/r7insight_js.js',
-      'test/r7insight_jsSpec.js'
+      'src/r7insight.js',
+      'test/r7insightSpec.js'
     ],
 
 

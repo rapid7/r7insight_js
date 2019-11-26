@@ -83,10 +83,10 @@
         if (window.IOPSENDPOINT) {
             _endpoint = window.IOPSENDPOINT;
         } else if (_noFormat) {
-            _endpoint = "webhook.logs.insight.rapid7.com/noformat";
+            _endpoint = "localhost:8080/noformat";
         }
         else {
-            _endpoint = "js.logs.insight.rapid7.com/v1";
+            _endpoint = "localhost:8080/v1";
         }
         _endpoint = (_SSL ? "https://" : "http://") + _region + "." + _endpoint + "/logs/" + _token;
 
@@ -416,13 +416,10 @@
             if (allowed_regions.indexOf(region) > -1) {
                 return region;
             } else {
-                throw_error("Unrecognised region");
+                throw "Unrecognised region";
             }
         }
-        throw_error("No region defined");
+        throw "No region defined";
     }
 
-    function throw_error(message) {
-        throw message;
-    }
 }));

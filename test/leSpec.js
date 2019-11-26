@@ -414,8 +414,8 @@ describe('tests for region', function () {
             });
             IOPS.log("Test");
             var url = this.requestList[0].url;
-            assert(url.search('/' + region + '.') === 7, "Expected " + region + " in the url, got: "
-                                                                    + url.substring(7,9));
+            assert(url.search('/' + region + '.') === 7, "Expected " + region +
+                                        " in the url, got: " + url.substring(7,9));
             IOPS.destroy('test' + region);
         });
     });
@@ -426,9 +426,9 @@ describe('tests for region', function () {
                 token: TOKEN,
                 name: 'test'
             });
-            fail();
+            fail("No exception was thrown");
         } catch(e) {
-            assert(e === "No region defined")
+            assert(e === "No region defined");
         }
         IOPS.destroy('test');
     });
@@ -440,9 +440,9 @@ describe('tests for region', function () {
                 name: 'test',
                 region: 'ham_land'
             });
-            fail();
+            fail("No exception was thrown");
         } catch(e) {
-            assert(e === "Unrecognised region")
+            assert(e === "Unrecognised region");
         }
         IOPS.destroy('test');
     });
@@ -532,6 +532,10 @@ describe('print option', function () {
     afterEach(restoreXMLHttpRequests);
     afterEach(destroy);
 });
+
+function fail(message) {
+    throw message;
+}
 
 function assert(condition, message) {
     if (!condition) {

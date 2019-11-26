@@ -360,7 +360,7 @@ describe('tests for SSL', function () {
     beforeEach(mockXMLHttpRequests);
     beforeEach(addGetJson);
 
-    it('SSL option set to true leads to \"https\"', function () {
+    it('SSL option set to true leads to "https"', function () {
         IOPS.init({
             token: TOKEN,
             name: 'test',
@@ -369,11 +369,11 @@ describe('tests for SSL', function () {
         });
         IOPS.log("Test");
         var url = this.requestList[0].url;
-        expect(url.indexOf('https') === 0).toBe(true);
+        expect(url.indexOf('https')).toBe(0);
         IOPS.destroy('test');
     });
 
-    it('SSL option set to false leads to \"http\"', function () {
+    it('SSL option set to false leads to "http"', function () {
         IOPS.init({
             token: TOKEN,
             name: 'test',
@@ -382,12 +382,12 @@ describe('tests for SSL', function () {
         });
         IOPS.log("Test");
         var url = this.requestList[0].url;
-        expect(url.indexOf("https") === -1).toBe(true);
-        expect(url.indexOf("http") === 0).toBe(true);
+        expect(url.indexOf("https")).toBe(-1);
+        expect(url.indexOf("http")).toBe(0);
         IOPS.destroy('test');
     });
 
-    it('SSL option not set leads to \"https\"', function () {
+    it('SSL option not set leads to "https"', function () {
         IOPS.init({
             token: TOKEN,
             name: 'test',
@@ -395,7 +395,7 @@ describe('tests for SSL', function () {
         });
         IOPS.log("Test");
         var url = this.requestList[0].url;
-        expect(url.indexOf("https") === 0).toBe(true);
+        expect(url.indexOf("https")).toBe(0);
         IOPS.destroy('test');
     });
 });
@@ -415,7 +415,7 @@ describe('tests for region', function () {
             });
             IOPS.log("Test");
             var url = this.requestList[0].url;
-            expect(url.indexOf('/' + region + '.') === 7).toBe(true, "Expected " + region +
+            expect(url.indexOf('/' + region + '.')).toBe(7, "Expected " + region +
                                         " in the url, got: " + url.substring(7,9));
             IOPS.destroy('test' + region);
         });
@@ -427,7 +427,7 @@ describe('tests for region', function () {
                 token: TOKEN,
                 name: 'test'
             });
-            done.fail();
+            jasmine.done.fail();
         } catch(e) {
             expect(e).toBe("No region defined");
         }
@@ -441,7 +441,7 @@ describe('tests for region', function () {
                 name: 'test',
                 region: 'random_region'
             });
-            done.fail();
+            jasmine.done.fail();
         } catch(e) {
             expect(e).toBe("Unrecognised region");
         }

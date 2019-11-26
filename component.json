@@ -1,7 +1,7 @@
 {
   "name": "le_js",
-  "repo": "logentries/le_js",
-  "description": "CLient-side JavaScript logging library for Logentries",
+  "repo": "rapid7/le_js",
+  "description": "Client-side JavaScript logging library for Rapid7",
   "version": "0.0.3",
   "keywords": [],
   "dependencies": {},

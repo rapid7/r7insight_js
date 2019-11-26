@@ -1,6 +1,6 @@
 /**
- * @license Copyright 2015 Logentries.
- * Please view license at https://raw.github.com/logentries/le_js/master/LICENSE
+ * @license Copyright 2019 Rapid7.
+ * Please view license at https://raw.github.com/rapid7/r7insight_js/master/LICENSE
  */
 
 /*jslint browser:true*/
@@ -26,7 +26,7 @@
         module.exports = factory(root);
     } else {
         // Browser globals (root is window)
-        root.LE = factory(root);
+        root.IOPS = factory(root);
     }
 }(this, function (window) {
     "use strict";
@@ -64,7 +64,7 @@
         /** @type {string} */
         var _token = options.token;
         /** @type {string} */
-        var _region = options.region;
+        var _region = validate_region(options.region);
         /** @type {boolean} */
         var _print = options.print;
         /** @type {boolean} */
@@ -80,8 +80,8 @@
         }();
         /** @type {string} */
         var _endpoint;
-        if (window.LEENDPOINT) {
-            _endpoint = window.LEENDPOINT;
+        if (window.IOPSENDPOINT) {
+            _endpoint = window.IOPSENDPOINT;
         } else if (_noFormat) {
             _endpoint = "localhost:8080/noformat";
         }
@@ -322,7 +322,7 @@
             if (logger) {
                 return logger.log.apply(this, arguments);
             } else
-                throw new Error("You must call LE.init(...) first.");
+                throw new Error("You must call IOPS.init(...) first.");
         };
 
          // The public interface
@@ -409,4 +409,21 @@
                 loggers[k].info.apply(this, arguments);
         }
     };
+
+    function validate_region (region) {
+        var allowed_regions = ['eu', 'us', 'ca', 'au', 'ap'];
+        if (region) {
+            if (allowed_regions.indexOf(region) > -1) {
+                return region;
+            } else {
+                throw_error("Unrecognised region");
+            }
+        } else {
+            throw_error("No region defined");
+        }
+    }
+
+    function throw_error (message) {
+        throw message;
+    }
 }));

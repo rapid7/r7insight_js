@@ -1,6 +1,6 @@
 /**
- * @license Copyright 2015 Logentries.
- * Please view license at https://raw.github.com/logentries/le_js/master/LICENSE
+ * @license Copyright 2019 Rapid7.
+ * Please view license at https://raw.githubusercontent.com/rapid7/le_js/master/LICENSE
  */
 
 /*jslint browser:true*/
@@ -26,7 +26,7 @@
         module.exports = factory(root);
     } else {
         // Browser globals (root is window)
-        root.LE = factory(root);
+        root.IOPS = factory(root);
     }
 }(this, function (window) {
     "use strict";
@@ -80,8 +80,8 @@
         }();
         /** @type {string} */
         var _endpoint;
-        if (window.LEENDPOINT) {
-            _endpoint = window.LEENDPOINT;
+        if (window.IOPSENDPOINT) {
+            _endpoint = window.IOPSENDPOINT;
         } else if (_noFormat) {
             _endpoint = "webhook.logs.insight.rapid7.com/noformat";
         }
@@ -322,7 +322,7 @@
             if (logger) {
                 return logger.log.apply(this, arguments);
             } else
-                throw new Error("You must call LE.init(...) first.");
+                throw new Error("You must call IOPS.init(...) first.");
         };
 
          // The public interface

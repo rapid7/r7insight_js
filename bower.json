@@ -1,8 +1,8 @@
 {
   "name": "le_js",
   "version": "0.0.3",
-  "homepage": "https://logentries.com",
-  "description": "Javascript library for Logentries.com",
+  "homepage": "https://rapid7.com",
+  "description": "Javascript library for rapid7.com",
   "main": "product/le.js",
   "license": "MIT",
   "ignore": [

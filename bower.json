@@ -1,6 +1,6 @@
 {
   "name": "r7insight_js",
-  "version": "0.0.3",
+  "version": "1.0",
   "homepage": "https://rapid7.com",
   "description": "Javascript library for Rapid7 Insight",
   "main": "product/r7insight_js.js",

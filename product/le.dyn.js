@@ -125,7 +125,7 @@ var XMLHttpRequest = function() {
         /**
          * @const
          * @type {string} */
-        var _endpoint = "js.logentries.com/v1";
+        var _endpoint = "js.logs.insight.rapid7.com/v1";
 
         /**
          * Flag to prevent further invocations on network err

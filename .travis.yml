@@ -1,6 +1,7 @@
 language: node_js
 node_js:
 - 0.1
+- 0.2
 sudo: false
 deploy:
   provider: releases

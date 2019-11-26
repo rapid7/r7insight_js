@@ -369,7 +369,7 @@ describe('tests for SSL', function () {
         });
         IOPS.log("Test");
         var url = this.requestList[0].url;
-        assert(url.search('https') === 0);
+        expect(url.indexOf('https') === 0).toBe(true);
         IOPS.destroy('test');
     });
 
@@ -382,7 +382,8 @@ describe('tests for SSL', function () {
         });
         IOPS.log("Test");
         var url = this.requestList[0].url;
-        assert(url.search("http") === 0);
+        expect(url.indexOf("https") === -1).toBe(true);
+        expect(url.indexOf("http") === 0).toBe(true);
         IOPS.destroy('test');
     });
 
@@ -394,7 +395,7 @@ describe('tests for SSL', function () {
         });
         IOPS.log("Test");
         var url = this.requestList[0].url;
-        assert(url.search("https") === 0);
+        expect(url.indexOf("https") === 0).toBe(true);
         IOPS.destroy('test');
     });
 });
@@ -414,7 +415,7 @@ describe('tests for region', function () {
             });
             IOPS.log("Test");
             var url = this.requestList[0].url;
-            assert(url.search('/' + region + '.') === 7, "Expected " + region +
+            expect(url.indexOf('/' + region + '.') === 7).toBe(true, "Expected " + region +
                                         " in the url, got: " + url.substring(7,9));
             IOPS.destroy('test' + region);
         });
@@ -426,9 +427,9 @@ describe('tests for region', function () {
                 token: TOKEN,
                 name: 'test'
             });
-            fail("No exception was thrown");
+            done.fail();
         } catch(e) {
-            assert(e === "No region defined");
+            expect(e).toBe("No region defined");
         }
         IOPS.destroy('test');
     });
@@ -438,11 +439,11 @@ describe('tests for region', function () {
             IOPS.init({
                 token: TOKEN,
                 name: 'test',
-                region: 'ham_land'
+                region: 'random_region'
             });
-            fail("No exception was thrown");
+            done.fail();
         } catch(e) {
-            assert(e === "Unrecognised region");
+            expect(e).toBe("Unrecognised region");
         }
         IOPS.destroy('test');
     });
@@ -532,17 +533,3 @@ describe('print option', function () {
     afterEach(restoreXMLHttpRequests);
     afterEach(destroy);
 });
-
-function fail(message) {
-    throw message;
-}
-
-function assert(condition, message) {
-    if (!condition) {
-        message = message || "Assertion failed";
-        if (typeof Error !== "undefined") {
-            throw new Error(message);
-        }
-        throw message; // Fallback
-    }
-}

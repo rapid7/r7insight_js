@@ -1,7 +1,7 @@
-le.js
+r7insight.js
 =====
 
-Client-side JavaScript logging library for [InsightOps](https://www.rapid7.com/solutions/it-operations/).
+Client-side JavaScript logging library for [Rapid7 Insight Platform](https://www.rapid7.com/solutions/it-operations/).
 
 [![Build Status](https://travis-ci.org/rapid7/r7insight_js.png?branch=master)](https://travis-ci.org/rapid7/r7insight_js)
 

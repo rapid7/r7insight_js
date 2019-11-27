@@ -1,6 +1,6 @@
 /**
- * @license Copyright 2015 Logentries.
- * Please view license at https://raw.github.com/logentries/le_js/master/LICENSE
+ * @license Copyright 2019 Rapid7.
+ * Please view license at https://raw.github.com/rapid7/r7insight_js/master/LICENSE
  */
 
 /*jslint browser:true*/
@@ -26,7 +26,7 @@
         module.exports = factory(root);
     } else {
         // Browser globals (root is window)
-        root.LE = factory(root);
+        root.R7Insight = factory(root);
     }
 }(this, function (window) {
     "use strict";
@@ -64,7 +64,7 @@
         /** @type {string} */
         var _token = options.token;
         /** @type {string} */
-        var _region = options.region;
+        var _region = validate_region(options.region);
         /** @type {boolean} */
         var _print = options.print;
         /** @type {boolean} */
@@ -80,13 +80,13 @@
         }();
         /** @type {string} */
         var _endpoint;
-        if (window.LEENDPOINT) {
-            _endpoint = window.LEENDPOINT;
+        if (window.R7INSIGHTENDPOINT) {
+            _endpoint = window.R7INSIGHTENDPOINT;
         } else if (_noFormat) {
-            _endpoint = "webhook.logs.insight.rapid7.com/noformat";
+            _endpoint = "localhost:8080/noformat";
         }
         else {
-            _endpoint = "js.logs.insight.rapid7.com/v1";
+            _endpoint = "localhost:8080/v1";
         }
         _endpoint = (_SSL ? "https://" : "http://") + _region + "." + _endpoint + "/logs/" + _token;
 
@@ -240,12 +240,12 @@
                             console.error("Couldn't submit events.");
                             if (request.status === 410) {
                                 // This API version has been phased out
-                                console.warn("This version of le_js is no longer supported!");
+                                console.warn("This version of r7insight_js is no longer supported!");
                             }
                         } else {
                             if (request.status === 301) {
                                 // Server issued a deprecation warning
-                                console.warn("This version of le_js is deprecated! Consider upgrading.");
+                                console.warn("This version of r7insight_js is deprecated! Consider upgrading.");
                             }
                             if (_backlog.length > 0) {
                                 // Submit the next event in the backlog
@@ -322,7 +322,7 @@
             if (logger) {
                 return logger.log.apply(this, arguments);
             } else
-                throw new Error("You must call LE.init(...) first.");
+                throw new Error("You must call R7Insight.init(...) first.");
         };
 
          // The public interface
@@ -409,4 +409,17 @@
                 loggers[k].info.apply(this, arguments);
         }
     };
+
+    function validate_region(region) {
+        var allowed_regions = ['eu', 'us', 'ca', 'au', 'ap'];
+        if (region) {
+            if (allowed_regions.indexOf(region) > -1) {
+                return region;
+            } else {
+                throw "Unrecognised region";
+            }
+        }
+        throw "No region defined";
+    }
+
 }));

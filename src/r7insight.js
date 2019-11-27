@@ -26,7 +26,7 @@
         module.exports = factory(root);
     } else {
         // Browser globals (root is window)
-        root.IOPS = factory(root);
+        root.R7Insight = factory(root);
     }
 }(this, function (window) {
     "use strict";
@@ -80,8 +80,8 @@
         }();
         /** @type {string} */
         var _endpoint;
-        if (window.IOPSENDPOINT) {
-            _endpoint = window.IOPSENDPOINT;
+        if (window.R7INSIGHTENDPOINT) {
+            _endpoint = window.R7INSIGHTENDPOINT;
         } else if (_noFormat) {
             _endpoint = "localhost:8080/noformat";
         }
@@ -322,7 +322,7 @@
             if (logger) {
                 return logger.log.apply(this, arguments);
             } else
-                throw new Error("You must call IOPS.init(...) first.");
+                throw new Error("You must call R7Insight.init(...) first.");
         };
 
          // The public interface

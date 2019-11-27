@@ -10,4 +10,3 @@ Several files are produced in the build. You'll probably just want to use __r7in
 
 * __r7insight.js__: JS client library, unminified
 * __r7insight.min.js__: JS client library, minified
-* __r7insight.dyn.js__: JS client library with dyn.js compatibility

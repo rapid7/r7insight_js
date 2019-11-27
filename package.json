@@ -1,7 +1,7 @@
 {
   "name": "r7insight_js",
   "version": "0.0.3",
-  "description": "Javascript library for Rapid7.com",
+  "description": "Javascript library for Rapid7 Insight",
   "main": "product/r7insight.js",
   "directories": {
     "test": "test"
@@ -32,7 +32,6 @@
     "karma-cli": "1.0.1",
     "karma-jasmine": "0.1.6",
     "karma-phantomjs-launcher": "1.0.4",
-    "karma-sauce-launcher": "0.2.14",
     "karma-sinon": "1.0.5",
     "sinon": "1.12.2"
   },
@@ -42,5 +41,6 @@
   "jshintConfig": {
     "undef": true,
     "es3": true
-  }
+  },
+  "dependencies": {}
 }

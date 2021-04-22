@@ -230,7 +230,7 @@
             var request = _getAjaxObject();
 
             if (_shouldCall) {
-                if (request.constructor instanceof XMLHttpRequest) {
+                if (request instanceof XMLHttpRequest) {
                     // Currently we don't support fine-grained error
                     // handling in older versions of IE
                     request.onreadystatechange = function() {

@@ -411,7 +411,7 @@
     };
 
     function validate_region(region) {
-        var allowed_regions = ['eu', 'us', 'ca', 'au', 'ap'];
+        var allowed_regions = ['eu', 'us', 'us2', 'us3', 'ca', 'au', 'ap'];
         if (region) {
             if (allowed_regions.indexOf(region) > -1) {
                 return region;

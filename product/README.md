@@ -2,6 +2,7 @@ r7insight.js
 =====
 
 The files in this directory are auto-generated through `gulp build`. If you alter them by hand, expect them to be overwritten the next time you run the task!
+Last release compiled using node v10.17.0
 
 Contents
 --------

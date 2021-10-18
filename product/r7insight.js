@@ -230,7 +230,7 @@
             var request = _getAjaxObject();
 
             if (_shouldCall) {
-                if (request.constructor === XMLHttpRequest) {
+                if (request instanceof XMLHttpRequest) {
                     // Currently we don't support fine-grained error
                     // handling in older versions of IE
                     request.onreadystatechange = function() {
@@ -411,7 +411,7 @@
     };
 
     function validate_region(region) {
-        var allowed_regions = ['eu', 'us', 'ca', 'au', 'ap'];
+        var allowed_regions = ['eu', 'us', 'us2', 'us3', 'ca', 'au', 'ap'];
         if (region) {
             if (allowed_regions.indexOf(region) > -1) {
                 return region;

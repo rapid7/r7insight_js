@@ -64,7 +64,7 @@
         /** @type {string} */
         var _token = options.token;
         /** @type {string} */
-        var _region = validate_region(options.region);
+        var _region = get_region_prefix(options.region);
         /** @type {boolean} */
         var _print = options.print;
         /** @type {boolean} */
@@ -88,7 +88,7 @@
         else {
             _endpoint = "js.logs.insight.rapid7.com/v1";
         }
-        _endpoint = (_SSL ? "https://" : "http://") + _region + "." + _endpoint + "/logs/" + _token;
+        _endpoint = (_SSL ? "https://" : "http://") + _region + _endpoint + "/logs/" + _token;
 
         /**
          * Flag to prevent further invocations on network err
@@ -410,11 +410,12 @@
         }
     };
 
-    function validate_region(region) {
-        var allowed_regions = ['eu', 'us', 'us2', 'us3', 'ca', 'au', 'ap'];
+    function get_region_prefix(region) {
+        var allowed_regions = ['eu', 'us', 'us2', 'us3', 'ca', 'au', 'ap','custom'];
         if (region) {
+            if(region === 'custom') return '';
             if (allowed_regions.indexOf(region) > -1) {
-                return region;
+                return region + '.';
             } else {
                 throw "Unrecognised region";
             }

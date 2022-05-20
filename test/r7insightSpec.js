@@ -501,6 +501,27 @@ describe('custom endpoint', function () {
     afterEach(destroy);
 });
 
+describe('full custom endpoint', function () {
+    beforeEach(mockXMLHttpRequests);
+    beforeEach(addGetJson);
+    beforeEach(function () {
+        window.R7INSIGHTENDPOINT = 'somewhere1.com/custom-logging';
+        R7Insight.init({
+            token: TOKEN,
+            region: 'custom'
+        });
+    });
+
+    it('can be set', function () {
+        R7Insight.log('some message');
+        var lastReq = this.requestList[0];
+        expect(lastReq.url).toBe('https://somewhere1.com/custom-logging/logs/test_token');
+    });
+
+    afterEach(restoreXMLHttpRequests);
+    afterEach(destroy);
+});
+
 describe('print option', function () {
     beforeEach(mockXMLHttpRequests);
     beforeEach(function () {

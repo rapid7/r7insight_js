@@ -356,7 +356,7 @@
         if (typeof options.name !== "string")
             throw new Error("Name not present.");
         else if (loggers.hasOwnProperty(options.name))
-            throw new Error("A logger with that name already exists!");
+            return true; // logger already exists
         loggers[options.name] = new Logger(options);
 
         return true;

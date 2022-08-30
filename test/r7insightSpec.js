@@ -522,6 +522,56 @@ describe('full custom endpoint', function () {
     afterEach(destroy);
 });
 
+
+describe('Multiple initialisations', function () {
+    beforeEach(mockXMLHttpRequests);
+    beforeEach(addGetJson);
+    beforeEach(function () {
+        R7Insight.init({
+            token: TOKEN,
+            region: 'eu'
+        });
+    });
+
+    it('should allow calling init on already set up logger', function () {
+        R7Insight.init({
+            token: TOKEN,
+            region: 'eu'
+        });
+        R7Insight.log('some message');
+        var lastReq = this.requestList[0];
+        expect(this.getXhrJson(0).event).toBe('some message');
+    });
+
+    afterEach(restoreXMLHttpRequests);
+    afterEach(destroy);
+});
+
+describe('Multiple initialisations', function () {
+    beforeEach(mockXMLHttpRequests);
+    beforeEach(addGetJson);
+    beforeEach(function () {
+        R7Insight.init({
+            name: 'test',
+            token: TOKEN,
+            region: 'eu'
+        });
+    });
+
+    it('should allow calling init on already set up logger with name', function () {
+        R7Insight.init({
+            name: 'test',
+            token: TOKEN,
+            region: 'eu'
+        });
+        R7Insight.log('some message');
+        expect(this.getXhrJson(0).event).toBe('some message');
+    });
+
+    afterEach(restoreXMLHttpRequests);
+    afterEach(destroy);
+});
+
 describe('print option', function () {
     beforeEach(mockXMLHttpRequests);
     beforeEach(function () {

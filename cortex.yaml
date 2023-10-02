@@ -1,0 +1,15 @@
+---
+info:
+  title: R7insight Js
+  description: Client-side JavaScript logging library for InsightOps
+  x-cortex-git:
+    github:
+      alias: r7org
+      repository: rapid7/r7insight_js
+  x-cortex-tag: r7insight-js
+  x-cortex-type: service
+  x-cortex-domain-parents:
+  - tag: insightidr
+openapi: 3.0.1
+servers:
+- url: "/"

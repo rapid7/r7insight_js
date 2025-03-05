@@ -8,6 +8,8 @@ info:
       repository: rapid7/r7insight_js
   x-cortex-tag: r7insight-js
   x-cortex-type: service
+  x-cortex-groups:
+  - exposure:opensource
   x-cortex-domain-parents:
   - tag: logsearch
 openapi: 3.0.1
